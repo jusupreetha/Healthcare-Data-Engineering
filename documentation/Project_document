@@ -1,0 +1,74 @@
+# Healthcare Data Engineering — Project Documentation
+
+## 1. Project Title
+
+**Healthcare OLTP to OLAP Data Engineering using MySQL, PySpark and Databricks**
+
+---
+
+## 2. Problem Statement
+
+Healthcare organizations generate large amounts of transactional data related to patients, doctors, appointments, diagnoses, treatments, medications, laboratory tests, insurance, billing, and payments.
+
+This project implements a data engineering pipeline that transforms normalized healthcare OLTP data into an analytical OLAP Star Schema.
+
+The pipeline performs:
+
+- Data ingestion
+- Data cleansing
+- Data validation
+- Data transformation
+- Star Schema modeling
+- Slowly Changing Dimensions
+- Incremental / CDC-style processing
+- Data-quality validation
+- Healthcare analytics
+
+---
+
+## 3. Project Objective
+
+The main objective is to build an end-to-end healthcare data engineering pipeline that converts transactional healthcare data into clean, reliable, historical, and analytics-ready data.
+
+The final system supports analysis of:
+
+- Patient visits
+- Doctor performance
+- Department performance
+- Treatment outcomes
+- Disease trends
+- Medication usage
+- Laboratory tests
+- Hospital revenue
+- Billing trends
+- Insurance claims
+- Healthcare KPIs
+
+---
+
+## 4. Architecture
+
+```text
+                  MySQL OLTP
+                      |
+                      v
+                PySpark / JDBC
+                      |
+                      v
+                Bronze Layer
+                      |
+                      v
+                Silver Layer
+          Cleaning + Validation
+                      |
+                      v
+                 Gold Layer
+                Star Schema
+                 /       \
+                /         \
+        Dimensions        Facts
+                \         /
+                 \       /
+                      |
+                      v
+             Healthcare Analytics
